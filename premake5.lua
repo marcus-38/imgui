@@ -2,9 +2,6 @@ project "ImGui"
 	kind "StaticLib"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
 	files
 	{
 		"imconfig.h",
@@ -18,6 +15,11 @@ project "ImGui"
 		"imstb_truetype.h",
 		"imgui_demo.cpp"
 	}
+
+    includedirs
+    {
+        "${prj.location}"
+    }
 
 	filter "system:windows"
 		systemversion "latest"
